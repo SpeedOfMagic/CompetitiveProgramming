@@ -1,4 +1,5 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+//Editorial: http://codeforces.com/blog/entry/60288
 #include <bits/stdc++.h>
 using namespace std;
 template<typename T> using v = vector<T>;

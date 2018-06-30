@@ -1,4 +1,12 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/*
+Statement:
+An array of n-1 elements is given.
+Sum of all elements is added somewhere in the array. Find its indice.
+
+Calculate the sum of all elements.
+For each element in the array, if sum without him is equal to him, then s - a[i] == a[i].
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")

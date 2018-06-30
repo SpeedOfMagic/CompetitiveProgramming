@@ -1,4 +1,16 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/*
+Statement:
+Fibonacci strings work like this:
+Fib[0] = "a";
+Fib[1] = "b";
+Fib[i] = Fib[1] + Fib[0].
+A number k is given (0 <= k <= 80). Find size of the largest subpalindrome of Fib[k].
+
+I don't know why, but starting from 5, size of the largest subpalindrome of Fib[k]
+is Fib[k].length() - 2. So, I just pushed the values of first 5 possible variants into array,
+and others calculated just like usual fibonacci numbers.
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")

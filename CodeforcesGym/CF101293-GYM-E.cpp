@@ -1,4 +1,15 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/*
+Statement:
+A connected graph with n vertices and m edges is given. 2 players play the game:
+On each turn, player removes 1 edge from graph.
+If graph becomes not connected, then that player loses.
+Determine the winner, or find out if it's a draw.
+
+It's needed to prove that when playing this game, the result is always tree.
+Then, the winning player depends on amount of turns.
+Also, if m = 0, then there is a draw, since nobody removes roads.
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")

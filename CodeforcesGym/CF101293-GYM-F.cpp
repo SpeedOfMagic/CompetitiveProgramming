@@ -1,4 +1,16 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/*
+Statement:
+An array of k elements (k <= 5; max value of elements < 2^10) is given.
+You may do any amount of turns, in turn #i:
+Choose any element j. Then, a[j] = a[j] - (1 << (i - 1)); 
+Determine if it's possible to turn all elements into zeros only.
+
+Since max value < 2^10, then there is maximum 10 turns in game.
+So, I may go through all possible arrays, and process them like a turn of events, and check if it will work.
+
+Solution works in k ^ log2(max).
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")
