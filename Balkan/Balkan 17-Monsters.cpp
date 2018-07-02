@@ -5,6 +5,7 @@ For that, I may go through all possible contigous rows, and for each row I have 
 which point to beginning and the end of valid submatrix. End pointer is always active,
 and if current row is invalid, then left pointer moves. If current row is invalid,
 then i send queries like "Add value x on segment[l; r] in column #i" and quickly process them later.
+Yes, it shouldn't work (I guess), but after strange optimizations I got 937 ms processing time :).
 
 The whole solution works in O(n^2 * m).
 */
@@ -37,7 +38,7 @@ int getInt(){int a; get a; return a;}
 //code goes here
 
 void run() {
-    int n, m;
+    int n = 750, m = 750;
     read(n, m);
 
     bool mat[n][m];
@@ -45,10 +46,7 @@ void run() {
         str s;
         get s;
         rep(j, 0, m)
-            if(s[j] == '1')
-                mat[i][j] = 1;
-            else
-                mat[i][j] = 0;
+            mat[i][j] = (s[j] - '0');
     }
 
     short preCols[n][m];
@@ -58,32 +56,45 @@ void run() {
             preCols[i][j] = preCols[i-1][j] + mat[i][j];
     }
 
-    long long value[n][m];
-    rep(i, 0, n)
+    long long value[n + 1][m];
+    rep(i, 0, n + 1)
         rep(j, 0, m)
             value[i][j] = 0;
     
-    int ll = 0;
     long long totDefence = 0;
 
     rep(l, 0, n)
         rep(r, l, n) {
-            ll = 0;
-            rep(rr, 0, m + 1)
-                if (rr == m || preCols[r][rr] - preCols[l][rr] + mat[l][rr] != r - l + 1) {
+            int ll = 0;
+            rep(rr, 0, m)
+                if (preCols[r][rr] - preCols[l][rr] + mat[l][rr] != r - l + 1) {
                     //debug(l, r, ll, rr, (rr - ll) * (rr - ll - 1) / 2 + (rr - ll));
+                    
                     totDefence += (rr - ll) * (rr - ll - 1) / 2 + (rr - ll);
-
+                    
+                    int pr = 0;
                     for (int i = ll; i < rr; i++) {
-                        int val = (i - ll + 1) * (rr - i);
+                        int val = pr + ll + rr - i - i;//int val = (i - ll + 1) * (rr - i);
+                        pr = val;
                         //debug(l, r, ll, rr, val);
                         value[l][i] += val;
-                        if (r + 1 < n)
-                            value[r + 1][i] -= val;
+                        value[r + 1][i] -= val;
                     }
 
                     ll = rr + 1;
                 }
+                
+            int rr = m;
+            totDefence += (rr - ll) * (rr - ll - 1) / 2 + (rr - ll);
+
+            int pr = 0;
+            for (int i = ll; i < rr; i++) {
+                int val = pr + ll + rr - i - i;//int val = (i - ll + 1) * (rr - i);
+                pr = val;
+                //debug(l, r, ll, rr, val);
+                value[l][i] += val;
+                value[r + 1][i] -= val;
+            }
         }
 
     rep(j, 0, m) {
@@ -103,7 +114,7 @@ void run() {
     put totDefence - mx;
     eol;
 
-    //cerr << totDefence << endl;
+    //cerr << totDefence << " " << mx << endl;
 }
 
 int32_t main() {srand(time(0));ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);put setprecision(15);run();return 0;}
