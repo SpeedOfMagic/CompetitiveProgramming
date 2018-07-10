@@ -1,4 +1,12 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/**
+Idea is, let's make simple implementation of visiting attractions,
+until Alex visits the same attraction twice.
+Then, I say that Alex will go by the same cycle again.
+Suppose that length of cycle = m, then after m, m * 2, m * 3 ... visits Alex go to the
+same place, => after v % m visits she'll be in the same place again.
+After that, it's easy to implement resulting part, since m <= n, => v % m < 50.
+**/
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")

@@ -1,4 +1,5 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+//Editorial: https://www.facebook.com/notes/2249775598371662
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("Ofast")
