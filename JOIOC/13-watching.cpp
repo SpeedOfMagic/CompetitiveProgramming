@@ -3,7 +3,8 @@
 Solution:
 1. If amount of cameras >= n then obviously answer is 1. => p + q <= n.
 2. It's obvious that if it's possible to place cameras with range w,
-then it's also possible to do the same, but with range w + 1, => I can find the answer by binary search.
+then it's also possible to do the same, but with range w + 1, =>
+I can find the answer by binary search.
 Suppose I have some value w and I want to check if it's possible to place cameras.
 
 3. I can do that with dp. Suppose dp[i][j] means
@@ -14,10 +15,11 @@ while using <= j small cameras".
 3rd pointer `p2` is such that a[i] - a[p1] < 2 * w and p2 is minimized;
 5. Then, dp[i][j] = min(dp[p1 - 1][j - 1], dp[p2 - 1][j] + 1).
 
-6. The only thing that's left is to find minimum in final column dp[n - 1], and check if result is <= q.
+6. The only thing that's left is to find minimum in final column dp[n - 1],
+and check if result is <= q.
 7. If yes, then r = w; otherwise l = w.
 
-Time complexity: O(n * min(p, n) * log(MAX))
+Time complexity: O(n * min(p, n) * log(MAX)).
 **/
 #include <bits/stdc++.h>
 using namespace std;
