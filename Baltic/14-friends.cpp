@@ -1,10 +1,9 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
 /**
 Solution:
-1. It's obvious that T totally depends on S, then I can determine S by converting U to T.
-2. That means, by only removing one letter from any position, I can determine if such string is possible.
-3. So, I want to go over all letters and try to remove them, then check if resulting string can be done by copying.
-4. To quickly check if resulting string can be done by copying, I can compare first and second half of it.
+1. It's obvious that T totally depends on S, which means I can determine S by converting U to T.
+2. I can convert U to possible T by removing only one letter from any position and check if it's correct.
+3. To quickly check if possible T can be done by copying, I can compare first and second half of it.
 And to quickly compare first and second half of it, I can use polynomial hashing property that:
 hash(S[l : r]) = (hash(S[1 : r]) - hash(S[1 : l - 1]) * (base ^ (r - l + 1)) + mod) % mod.
 Since r - l + 1 <= n, then base ^ (r - l + 1) can be precalculated.
