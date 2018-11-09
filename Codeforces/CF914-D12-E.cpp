@@ -1,4 +1,8 @@
 /** MIT License Copyright (c) 2018 Vasilyev Daniil **/
+/* Solution
+1. It can be solved with divide & conquer approach by using centroid decomposition
+2. 
+*/
 #include <bits/stdc++.h>
 //#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
