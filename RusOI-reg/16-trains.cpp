@@ -2,9 +2,8 @@
 /*
 Statement:
 There is a train which has k seats and goes from station 1 to 2 to ... to n.
-Also, there are m people, which have values l r x. It means that each of them
-bought ticket from station l to station r and occupied seat x.
-You can also buy tickets, just like those m people did.
+Also, there are m people, each of which has values l r x. It means that he bought ticket from station l to station r and occupies seat x during the ride. Moreover, every seat has no more than one person at the same time.
+You can also buy tickets, just like those m people did. You also need to follow rule above.
 You need to process q queries, each has values l r and asks the minimum number of tickets to ride from station l to station r.
 */
 /*
