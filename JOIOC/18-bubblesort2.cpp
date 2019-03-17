@@ -4,7 +4,7 @@ O(n log n * q):
 1. Suppose there is array B which is {A[i], i} for all i. Also it's sorted.
 2. Then the answer is max for all i in [0; n - 1] (i - j), where B[j] = {A[i], i}.
 If we build B and calculate answer after each query, we get O(n log n * q) solution.
-O(n log n + q log n):
+O((n + q) log n):
 3. To build B faster it's easy to notice that only one element in B moves from one position to another. Then what is needed is to pull element out from one position and put it into another one. It can be easily done by treap.
 4. To calculate answer, let every element with index i (according to A) in treap have value c = (i - j) where B[j] = {A[i], i}.
 5. Since answer is maximum among them, then each treap should also store maximum value in its subtree.
