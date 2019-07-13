@@ -1,4 +1,11 @@
 /** MIT License Copyright (c) 2018-2019 Vasilev Daniil **/
+/* Solution
+Let's divide points into 2 arrays: those to the left of the line (L), and those to the right of the line (R)
+Let's look at two neighbouring pair of points in L. There are 2 possible variants: polygon has inner part contained between these two points, or not.
+Since polygon always has clockwise order, then it can be proven that if strictly between those two points there have never been rotation in counter-clockwise order, then the inner part of polygon is between those two points, which means that those two points make separate region right to the line.
+So if we go through each neighbouring pair of points in L + first and last points in L, and check if amount of counter-clockwise rotations strictly between them is > 0, then we can decide if we should add another right region to the answer or not.
+If we do the same to R, then we'll get the answer.
+*/
 #include <bits/stdc++.h>
 #include "lookup.h"
 using namespace std;
@@ -78,4 +85,4 @@ void run() {
 	Answer(right, left);
 }
  
-signed main() {srand(time(0)); ios::sync_with_stdio(0); cin.tie(0); put fixed << setprecision(12); run();}
+signed main() {run();}
