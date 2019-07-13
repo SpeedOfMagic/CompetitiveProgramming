@@ -1,7 +1,8 @@
 /* Solution
 Let f(x) = {(x + x / b) % a, x % b}
-It's possible to prove that this f(x) is periodic with period = ab / gcd(a, b + 1)
-Then you need for each segment calculate part of periodic cycle they cover, then find 1-2 segments that cover the same part, but their right bounds must be less than a period of f(x).
+It's possible to prove that f(x) is periodic with smallest period = ab / gcd(a, b + 1)
+Then you need for each segment calculate part of periodic cycle they cover, then find 1-2 segments
+that cover the same part, but their right bounds must be less than a period of f(x).
 The answer is a size of a union of such segments
 Also it's needed to check if a * b can overflow and if one of segments has length >= period
 */
