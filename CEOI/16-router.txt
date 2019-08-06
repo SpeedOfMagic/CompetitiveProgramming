@@ -1,0 +1,6 @@
+Solution:
+Let there be 3 layers of nodes:
+1. Each node of 1st layer connects 10 input nodes
+2. Each node of 3rd layer connects 10 output nodes
+3. Every node in the 2nd layer should connect some nodes from 1st layer and some nodes from 3rd layer. By using math it's easy to find out that optimal amount is sqrt(max_power / 100)
+It can be proven that this graph will satisfy all conditions.
